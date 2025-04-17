@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Account Details</title>
+</head>
+<body>
+    <h1>Account Details</h1>
+
+    <div th:if="${account != null}">
+        <p><strong>Account Number:</strong> <span th:text="${account.accountNumber}"></span></p>
+        <p><strong>Name:</strong> <span th:text="${account.name}"></span></p>
+        <p><strong>Email:</strong> <span th:text="${account.email}"></span></p>
+        <p><strong>Mobile:</strong> <span th:text="${account.mobileNumber}"></span></p>
+        <p><strong>DOB:</strong> <span th:text="${account.dob}"></span></p>
+        <p><strong>Account Type:</strong> <span th:text="${account.accountType}"></span></p>
+        <p><strong>Created On:</strong> <span th:text="${account.createdOn}"></span></p>
+        <p><strong>Balance:</strong> ₹<span th:text="${account.balance}"></span></p>
+    </div>
+
+    
+ 
+    <button onclick="goBack()">Back to Dashboard</button>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    
+
+    
+</body>
+</html>

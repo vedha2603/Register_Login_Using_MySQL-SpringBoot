@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Deposit / Withdraw</title>
+</head>
+<body>
+    <h2>Deposit / Withdraw</h2>
+
+    <form th:action="@{/DepoWithdraw}" method="post">
+        <label for="accountNumber">Account Number:</label>
+        <input type="text" id="accountNumber" name="accountNumber" required><br><br>
+
+        <label for="transactionType">Transaction Type:</label>
+        <select id="transactionType" name="transactionType" required>
+            <option value="">Select</option>
+            <option value="deposit">Deposit</option>
+            <option value="withdraw">Withdraw</option>
+        </select><br><br>
+
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" name="amount" step="0.01" min="1" required><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <!-- Success and error messages will be shown below -->
+    <p th:text="${message}" style="color: green;"></p>
+    <p th:text="${error}" style="color: red;"></p>
+</body>
+</html>

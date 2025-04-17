@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Welcome to Your Banking Dashboard</h1>
+
+    <div>
+        <!-- Create Account as a Button -->
+        <form th:action="@{/create-account}" method="get" style="display:inline;">
+            <button type="submit">Create Account</button>
+        </form>
+    </div>
+
+    <div>
+        <!-- View Account as a Button (via POST) -->
+        <form th:action="@{/view-account}" method="post" style="display:inline;">
+            <input type="hidden" name="email" th:value="${user.email}" />
+            <button type="submit">View Account</button>
+        </form>
+    </div>
+
+    <div>
+        <!-- Transaction History as a Button (via POST) -->
+        <form th:action="@{/transactions}" method="post" style="display:inline;">
+            <input type="hidden" name="accountId" th:value="${accountId}" />
+            <button type="submit">Transaction History</button>
+        </form>
+    </div>
+
+    <div>
+        
+        <form th:action="@{/banktransfer}" method="get" style="display:inline;">
+            <button type="submit">Bank Transfer</button>
+        </form>
+    </div>
+    <div>
+          <form th:action="@{/DepoWithdraw}" method="get" style="display:inline;">
+            <button type="submit">Transaction</button>
+        </form>
+    </div>
+    
+</body>
+</html>
