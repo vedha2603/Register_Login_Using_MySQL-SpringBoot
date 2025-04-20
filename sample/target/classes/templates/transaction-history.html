@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Transaction History</title></head>
+<body>
+    <h2>Transaction History</h2>
+    <table border="1">
+        <tr>
+            <th>Type</th>
+            <th>Amount</th>
+            <th>Date & Time</th>
+        </tr>
+        <tr th:each="txn : ${transactions}">
+            <td th:text="${txn.type}">Deposit</td>
+            <td th:text="${txn.amount}">100.00</td>
+            <td th:text="${txn.dateTime}">2025-04-15 10:30</td>
+        </tr>
+    </table>
+    <a th:href="@{/dashboard}">Back to Dashboard</a>
+</body>
+</html>
