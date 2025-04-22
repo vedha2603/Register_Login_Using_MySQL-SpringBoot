@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Account Details</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom right, #e0f0ff);
+            color: black;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 60px 20px;
+        }
+
+        .card {
+            background-color: #ffffff;
+            padding: 40px 50px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 80, 158, 0.2);
+            max-width: 700px;
+            width: 100%;
+            text-align: left;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: black;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin: 12px 0;
+        }
+
+        strong {
+            color: #003366;
+        }
+
+        button {
+            margin-top: 30px;
+            padding: 12px 24px;
+            background: linear-gradient(to right, #007bff, #00c6ff);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: transform 0.2s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(to right, #00c6ff, #007bff);
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="card">
+        <h1>Account Details</h1>
+
+        <div th:if="${account != null}">
+            <p><strong>Account Number:</strong> <span th:text="${account.accountNumber}"></span></p>
+            <p><strong>Name:</strong> <span th:text="${account.name}"></span></p>
+            <p><strong>Email:</strong> <span th:text="${account.email}"></span></p>
+            <p><strong>Mobile:</strong> <span th:text="${account.mobileNumber}"></span></p>
+            <p><strong>DOB:</strong> <span th:text="${account.dob}"></span></p>
+            <p><strong>Account Type:</strong> <span th:text="${account.accountType}"></span></p>
+            <p><strong>Created On:</strong> <span th:text="${account.createdOn}"></span></p>
+            <p><strong>Balance:</strong> ₹<span th:text="${account.balance}"></span></p>
+        </div>
+
+        <button onclick="goBack()">Back to Dashboard</button>
+    </div>
+</div>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Transaction History</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom right, #e0f0ff);
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin-top: 30px;
+        }
+
+        form {
+            margin-top: 20px;
+            margin-bottom: 30px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+
+        label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            width: 200px;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 10px 18px;
+            background: linear-gradient(to right, #007bff, #00c6ff);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: linear-gradient(to right, #00c6ff, #007bff);
+            transform: scale(1.02);
+        }
+
+        table {
+            border-collapse: collapse;
+            margin: 20px auto;
+            width: 90%;
+            background-color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #2c3e50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #e0f7fa;
+        }
+    </style>
+</head>
+<body>
+    <center><div>
+    <h2>Transaction History</h2>
+
+    <form action="/transaction-history" method="get">
+        <label for="accountNumber">Enter Account Number:</label>
+        <input type="text" id="accountNumber" name="accountNumber" required>
+        <button type="submit">View History</button>
+    </form>
+
+    <br>
+
+    <table border="1" th:if="${transactions != null}">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Account</th>
+                <th>Type</th>
+                <th>Amount</th>
+                <th>Description</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="tx : ${transactions}">
+                <td th:text="${tx.id}">1</td>
+                <td th:text="${tx.accountNumber}">A10001</td>
+                <td th:text="${tx.type}">transfer</td>
+                <td th:text="${tx.amount}">500.00</td>
+                <td th:text="${tx.description}">Sent to A10003</td>
+                <td th:text="${tx.timestamp}">2025-04-22T10:00</td>
+            </tr>
+        </tbody>
+    </table></div></center>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom right, #e0f0ff);
+            color:black;
+        }
+
+        .container {
+            margin-top: 200px;
+            padding: 40px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 255, 0.2);
+            width: 500px;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+            color: black;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin: 10px 0;
+            padding: 12px 25px;
+            background: linear-gradient(to right, #007bff, #00c6ff);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background: linear-gradient(to right, #00c6ff, #007bff);
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body>
+
+<center>
+    <div class="container">
+        <h2>Welcome</h2>
+        <p>Please Login or Create an Account</p>
+        <a href="/login" class="btn">Login</a>
+        <br>
+        <a href="/create-account" class="btn">Create Account</a>
+    </div>
+</center>
+
+</body>
+</html>

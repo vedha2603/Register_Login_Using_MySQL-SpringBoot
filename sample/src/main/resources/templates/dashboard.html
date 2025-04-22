@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom right, #e0f0ff);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #083867;
+            margin-bottom: 40px;
+        }
+
+        .button-row {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .button-row div {
+            display: inline-block;
+        }
+
+        button {
+            background: linear-gradient(to right, #007bff, #00c6ff);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background: linear-gradient(to right, #00c6ff, #007bff);
+            transform: scale(1.02);
+        }
+
+        button i {
+            font-size: 20px;
+        }
+
+        .button-row div img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        /* Blue Button Styles */
+        .view-account, .transaction-history, .bank-transfer, .depo-withdraw {
+            background-color: #3498db;
+            border: 1px solid #0056b3;
+        }
+
+        .view-account:hover, .transaction-history:hover, .bank-transfer:hover, .depo-withdraw:hover {
+            background-color: #0056b3;
+        }
+
+        /* Container for the entire page */
+        .dashboard-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Your Banking Dashboard</h1>
+
+        <div class="dashboard-content">
+            <!-- First Row: View Account and Transaction History -->
+            <div class="button-row">
+                <div>
+                    <form th:action="@{/view-account}" method="post" style="display:inline;">
+                        <input type="hidden" name="email" th:value="${user.email}" />
+                        <button type="submit" class="view-account">
+                            <i class="fas fa-user"></i> View Account
+                        </button>
+                    </form>
+                </div>
+                <div>
+                    <button onclick="window.location.href='/transaction-history'" class="transaction-history">
+                        <i class="fas fa-history"></i> Transaction History
+                    </button>
+                </div>
+            </div>
+
+            <!-- Second Row: Bank Transfer and Transaction -->
+            <div class="button-row">
+                <div>
+                    <form th:action="@{/banktransfer}" method="get" style="display:inline;">
+                        <button type="submit" class="bank-transfer">
+                            <i class="fas fa-exchange-alt"></i> Bank Transfer
+                        </button>
+                    </form>
+                </div>
+                <div>
+                    <form th:action="@{/DepoWithdraw}" method="get" style="display:inline;">
+                        <button type="submit" class="depo-withdraw">
+                            <i class="fas fa-wallet"></i> Transaction
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
